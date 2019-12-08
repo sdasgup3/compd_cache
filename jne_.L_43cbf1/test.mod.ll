@@ -89,6 +89,34 @@ target triple = "x86_64-pc-linux-gnu-elf"
 @0 = internal global i1 false
 
 
-  ret %struct.Memory* 
+define internal %struct.Memory* @_ZN12_GLOBAL__N_1L3JNZEP6MemoryR5State3RnWIhE2InImES7_(%struct.Memory* readnone returned, %struct.State* nocapture dereferenceable(3376), i8* nocapture, i64, i64) #2 {
+  %6 = getelementptr inbounds %struct.State, %struct.State* %1, i64 0, i32 2, i32 7
+  %7 = load i8, i8* %6, align 1
+  %8 = icmp eq i8 %7, 0
+  %9 = zext i1 %8 to i8
+  store i8 %9, i8* %2, align 1
+  %10 = getelementptr inbounds %struct.State, %struct.State* %1, i64 0, i32 6, i32 33, i32 0, i32 0
+  %11 = select i1 %8, i64 %3, i64 %4
+  store i64 %11, i64* %10, align 8
+  ret %struct.Memory* %0
+}
+
+define %struct.Memory* @routine_jne_.L_43cbf1(%struct.State*  dereferenceable(3376), i64, %struct.Memory* ) #19 {
+block_400478:
+  %BRANCH_TAKEN = alloca i8, align 1
+  store i8 0, i8* %BRANCH_TAKEN, align 1
+  %3 = getelementptr inbounds %struct.State, %struct.State* %0, i32 0, i32 6
+  %4 = getelementptr inbounds %struct.GPR, %struct.GPR* %3, i32 0, i32 33
+  %5 = getelementptr inbounds %struct.Reg, %struct.Reg* %4, i32 0, i32 0
+  %PC = bitcast %union.anon* %5 to i64*
+  %6 = load i64, i64* %PC
+  %7 = add i64 %6, 2
+  %8 = load i64, i64* %PC
+  %9 = add i64 %8, 2
+  %10 = load i64, i64* %PC
+  %11 = add i64 %10, 2
+  store i64 %11, i64* %PC
+  %12 = call %struct.Memory* @_ZN12_GLOBAL__N_1L3JNZEP6MemoryR5State3RnWIhE2InImES7_(%struct.Memory* %2, %struct.State* %0, i8* %BRANCH_TAKEN, i64 %7, i64 %9)
+  ret %struct.Memory* %12
 }
 

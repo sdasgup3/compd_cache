@@ -1,0 +1,6 @@
+Makefile
+test
+test.ll
+test.bc
+test.c
+test.cfg
